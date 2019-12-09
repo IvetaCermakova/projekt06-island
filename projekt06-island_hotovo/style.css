@@ -1,0 +1,487 @@
+/* nejsme vcerejsi, pouzivame moderni box model */
+*, :after, :before { box-sizing: border-box; }
+
+/*
+ BARVY
+ pozadi     #f5f5f5
+ Jedeme retro cernobile, dnes barvy nepotrebujeme.
+*/
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* HLAVICKA */
+
+header{
+    background-image: url(images/island-hlavicka.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+    color: white;
+    text-align: center;   
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.titulek {
+    font-family: 'Raleway', serif;
+    font-size: 4rem;
+    margin: 0;
+    padding: 20px;
+    text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.perex{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-size: 14px;
+}
+
+.autor{
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 40px;
+    
+}
+
+.autor::before {
+    content: "";
+    display: block;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80px;
+    border-top: solid 2px rgba(255, 255, 255, 0.7);
+}
+
+/* bilybox */
+
+.bilybox{
+    background-color: white;
+    box-shadow: 0px 8px 12px -7px rgba(0, 0, 0, 0.6);
+    margin-top: -10px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+
+/* MENU */
+
+ul.menu{
+    list-style: none;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.menu li{
+    border-bottom: 1px solid lightgrey;
+    text-align: center;
+    margin: 10px;
+}
+
+.menu li:hover a {
+    font-weight: bold;
+    color: #629edb;
+}
+
+.menu a{
+    color: grey;
+    text-transform: uppercase;
+    font-family: 'Raleway', serif;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 10px;    
+}
+
+
+
+/* OBSAH */
+
+p{
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 16px;
+    
+}
+
+.obrazek img{
+    width: 100%;    
+    filter: saturate(80%);
+}
+
+.popisek{
+    text-align: center;
+    font-family: 'Raleway', serif;
+    color: grey;
+    font-size: 12px;
+    margin: 0;
+}
+
+.popisek a{
+    text-decoration: underline;
+    color: inherit;
+}
+
+h2{
+    font-family: 'Raleway', serif;
+    font-size: 30px;
+    padding-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h2::after{
+    content: "";
+    display: block;
+    width: 80px;
+    height: 5px;
+    background-color: #629edb;
+    margin-top: 15px;
+    margin-left: -20px;
+}
+
+
+/* FOTOGALERIE */
+
+.galerie img{
+    margin-top: 15px;
+    width: 100%;
+}
+
+.galerie .popisek{
+    font-weight: bold;
+}
+
+.galerie span,
+.galerie a{
+    font-weight: normal;
+}
+
+
+
+/* PATICKA */
+
+footer {
+    background-color: #f5f5f5;
+}
+
+footer p{    
+    color: grey;
+    text-decoration: none;
+    font-family: 'Merriweather', serif;
+    font-size: 12px;
+}    
+
+footer a{
+    color: grey;
+    font-family: 'Merriweather', serif;
+    font-size: 12px;  
+}
+
+footer a:hover{
+    font-weight: bold;
+}
+
+/*TABLET*/
+@media (min-width: 500px) {
+    
+    .autor{
+        padding-bottom: 70px;
+    }
+
+    .bilybox{
+        padding-top: 10px;
+        padding-bottom: 0;
+    }
+
+    .menu{
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu li{
+        list-style: none;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 5px 50px 5px 50px;
+        text-decoration: none;
+        margin: 0;
+    }
+
+    .menu li:first-child{
+        border-left: none;
+    }
+
+    .menu li:last-child{
+        border-right: none;
+    }
+
+    .menu li:hover a {
+        font-weight: bold;
+        color: #629edb;
+    }
+
+    .obrazek{
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .obrazek .popisek{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        color: white;
+        padding: 0;
+    }
+
+    .galerie {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: stretch;
+        line-height: 0;
+    }
+
+    .galerie>* {
+        flex: 0 50%;
+    }
+
+    .galerie img{
+        margin: 0;
+    }
+    
+    .foto{
+        width: 33.33%;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .foto img{
+        max-width: 100%;
+        display: block;
+        transition: transform 500ms ease-out 0s;
+    }
+    
+    .foto .popisek{
+        background-color: rgba(0,0,0,0.4);
+        color: white;
+        text-align: center;
+        padding: 20px 0px;
+        position: absolute;
+        width: 100%;
+        transition: transform 500ms ease-out 0s;
+        line-height: 2;
+    }
+    
+    .foto:hover .popisek {
+        transform: translate(0, -100%);
+    }
+    
+    .foto:hover img{
+        transform: scale(1.2);
+    }
+    
+    .foto .nazev{
+        font-weight: bold;
+    }
+    
+    .foto .copyright{
+        font-size: 0.8rem;
+    }
+    
+    .foto a{
+        color: white;
+    }
+
+    .footer {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+}
+
+/*PC*/
+@media (min-width: 1000px) {
+    
+    h1.titulek{
+        padding-top: 80px;
+        padding-bottom: 30px;
+        font-size: 70px;
+    }
+
+    .perex{
+        margin: auto;
+        width: 60%;
+        padding-bottom: 10px;
+        
+    }
+
+    .autor{
+        margin-top: 20px;
+        padding-bottom: 140px;
+    }
+
+    .bilybox{
+        margin: -70px auto 0px auto;
+        width: 75%;
+        padding-top: 20px;
+    }
+
+    .menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        float: left;
+        padding: 20px;
+    }
+
+    ul.menu{
+        margin-bottom: 80px;
+        margin-top: 0;
+        padding-right: 50px;
+    }
+
+    .menu li{
+        list-style: none;
+        border: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 5px 10px 5px 10px;
+        text-decoration: none;
+        text-align: left;
+        margin: 0;
+    }
+
+    .menu li:hover a {
+        font-weight: bold;
+        color: #629edb;
+    }
+
+    .uvod{
+        margin-left: 22%;
+        margin-top: 20px;
+        padding-right: 60px;
+    }
+
+    .obrazek {
+        position: relative;
+        display: flex;
+        margin-top: 50px;
+        
+    }
+
+    .obrazek .popisek{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        color: white;
+    }
+
+    .proc{
+        margin-left: 25px;
+        margin-right: 20%;
+    }
+
+    .proc h2::after{
+        margin-left: -45px;
+    }
+
+    .co{
+        margin-left: 20%;
+        margin-right: 25px;
+    }
+
+    .co h2::after{
+        margin-left: -55px;
+    }
+
+    .co2{
+        margin-left: 20%;
+        margin-right: 25px;
+        padding-bottom: 20px;
+    }
+
+    .galerie {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: stretch;
+        line-height: 0;
+    }
+
+    .galerie>* {
+        flex: 0 0 33.33333%;
+    }
+
+    .galerie img{
+        margin: 0;
+        width: 100%;
+    }
+    
+    .foto{
+        width: 33.33%;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .foto img{
+        max-width: 100%;
+        display: block;
+        transition: transform 500ms ease-out 0s;
+    }
+    
+    .foto .popisek{
+        background-color: rgba(0,0,0,0.4);
+        color: white;
+        text-align: center;
+        padding: 20px 0px;
+        position: absolute;
+        width: 100%;
+        transition: transform 500ms ease-out 0s;
+        line-height: 2;
+        
+    }
+    
+    .foto:hover .popisek {
+        transform: translate(0, -100%);
+    }
+    
+    .foto:hover img{
+        transform: scale(1.2);
+    }
+    
+    .foto .nazev{
+        font-weight: bold;
+    }
+    
+    .foto .copyright{
+        font-size: 0.8rem;
+    }
+    
+    .foto a{
+        color: white;
+    }
+
+    footer {
+        width: 75%;
+        margin: 40px auto;
+    }
+
+    footer p{
+        padding-left: 0;
+    }
+}
+
